@@ -7,5 +7,10 @@ use Illuminate\Http\Request;
 
 class GameController extends Controller
 {
-    //
+    //GET [Auth: Token]
+    public function register(Request $request)
+    {
+    
+    }
+    
 }
