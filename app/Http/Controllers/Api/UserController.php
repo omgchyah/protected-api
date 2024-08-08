@@ -20,7 +20,7 @@ class UserController extends Controller
         $request->validate([
             "username" => "nullable|string",
             "email" => "required|string|email|unique:users",
-            "password" => "required|string|min:8"
+            "password" => "required|string|min:6"
         ]);
 
         if ($request->username === null) {
@@ -43,7 +43,7 @@ class UserController extends Controller
             "status" => true,
             "message" => "User registered succesfully",
             "data" => $user
-        ]);
+        ], 200);
     
     }
     
