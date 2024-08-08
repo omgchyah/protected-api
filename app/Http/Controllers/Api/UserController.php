@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -50,7 +51,39 @@ class UserController extends Controller
     //POST [email, password]
     public function login(Request $request)
     {
-        
+        //Validation
+        $request->validate([
+            "email" => "required|string|email",
+            "password" => "required|string"
+        ]);
+
+        //Email check
+        $user = User::where("email", $request->email)->first();
+
+        if(!empty($user)) {
+            if(Hash::check($request->password, $user->password)) {
+                $token = $user->createToken("myToken")->accessToken;
+                return response()->json([
+                    "status" => true,
+                    "message" => "Login successful",
+                    "data" => [
+                        $user->only(['id', 'username', 'email', 'role']),
+                        "token" => $token,
+                    ]  
+                ], 200);
+            } else {
+                return response()->json([
+                    "status" => false,
+                    "message" => "Password didn't match",
+                ], 401);
+            }
+
+        } else {
+            return response()->json([
+                "status" => false,
+                "message" => "Email doesn't exist",
+            ], 401);
+        }
     }
     
     //GET [Auth: Token]
