@@ -12,7 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('games', function (Blueprint $table) {
-            $table->id();
+            $table->id('dice1');
+            $table->integer('dice1');
+            $table->integer('dice2');
+            $table->enum('result', ['win', 'loss']);
+            $table->id('userId')->deleteOnCasade();
             $table->timestamps();
         });
     }
