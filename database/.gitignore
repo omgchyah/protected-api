@@ -1,1 +1,100 @@
-*.sqlite*
+# Laravel generated files
+/vendor/
+/node_modules/
+/public/storage
+/storage/*.key
+.env
+.env.*.php
+.env.backup
+.env.local.php
+.env.development
+.env.development.local
+.env.testing
+.env.testing.local
+.env.production
+.env.production.local
+/storage/app/public
+/public/hot
+/public/storage
+/public/mix-manifest.json
+/public/css/app.css
+/public/css/app.css.map
+/public/js/app.js
+/public/js/app.js.map
+/.phpunit.result.cache
+
+# Laravel Mix
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+/public/hot
+/public/css/*.css
+/public/js/*.js
+/public/mix-manifest.json
+/public/images
+/public/fonts
+/public/mix-manifest.json
+/public/hot
+/public/css/*.map
+/public/js/*.map
+
+# IDE files
+/.idea
+/.vscode
+
+# Composer dependencies
+/vendor
+
+# Node modules
+/node_modules
+
+# Log files
+/storage/logs/*.log
+
+# Laravel generated cache files
+/bootstrap/cache/*.php
+/storage/framework/cache/data/*
+/storage/framework/sessions/*
+/storage/framework/testing/*
+/storage/framework/views/*
+
+# Laravel Telescope
+/telescope
+
+# Backup files
+*_backup.*
+
+# PHPUnit
+/phpunit.xml
+
+# Coverage reports
+/coverage/
+
+# Ignore all env files
+.env
+.env.*
+
+# Ignore configuration files
+Homestead.yaml
+Homestead.json
+.vagrant/
+
+# Ignore compiled config and routes
+/config/*.php
+/routes/*.php
+
+# Ignore Flysystem's local temp files
+*.temp
+
+# Ignore Mac system files
+.DS_Store
+
+# Ignore Windows system files
+Thumbs.db
+
+# Ignore Linux system files
+.trash
+
+# Ignore lock files for security and version management
+composer.lock
+package-lock.json
